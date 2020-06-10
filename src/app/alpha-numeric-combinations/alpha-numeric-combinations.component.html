@@ -1,0 +1,38 @@
+<main role="main" class="container">
+  <div class="my-3 p-3 bg-white rounded shadow-sm">
+    <h6 class="border-bottom border-gray pb-2 mb-0">AlphaNumeric Combinations <span *ngIf="phoneNumberInput"> for {{phoneNumberInput}}<small class="d-block text-right mt-3">
+      Total combinations : {{totalItems}}
+    </small></span></h6>
+    <ng-container *ngIf="phoneNumberInput && pageOfItems.length && !loading">
+    <div class="media text-muted pt-3"  *ngFor="let item of pageOfItems">
+      <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <strong class="text-gray-dark">{{item.name}}</strong>
+        </div>
+      </div>
+    </div>
+
+    <small class="d-block text-right mt-3"> 
+      <div class="btn-group" role="group" >
+        <button type="button" class="btn btn-secondary" *ngFor="let pageItem of createPaginationRange(page.totalPages); let currentPage=index" [ngClass]="[page.currentPage== currentPage? 'btn-dark' : '']"  (click)="setPage(currentPage)" >{{pageItem}}</button>
+       
+      </div>
+    </small>
+  </ng-container>
+
+  <ng-container *ngIf="!phoneNumberInput && !loading">
+    <div class="alert alert-info">
+      Please get started by providing a valid 7 or 10 digit phone number and  view generated alphanumberic combinations.
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="phoneNumberInput && !loading && error">
+    <div class="alert alert-danger">
+       {{error}}
+    </div> 
+  </ng-container>
+
+  <div class="loader" *ngIf="phoneNumberInput && loading && !error"></div>
+
+  </div>
+</main>

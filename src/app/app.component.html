@@ -1,0 +1,6 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+  <a class="navbar-brand mr-auto mr-lg-0" href="#">FINRA AlphaNumeric Combinations</a>
+</nav>
+
+<app-phone-number-input (onGenerate)="phoneNumberOutput=$event"></app-phone-number-input>
+<app-alpha-numeric-combinations [phoneNumberInput]="phoneNumberOutput"></app-alpha-numeric-combinations>
