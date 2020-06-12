@@ -34,6 +34,7 @@ export class AlphaNumericCombinationsComponent implements OnInit, OnChanges {
   setPage(page: number) {
     this.loading = true;
     this.error = null;
+    this.pageOfItems = [];
     this.alphaNumericCombinationsService
       .getAlphaNumericCombinations(this.phoneNumberInput, page, this.pageSize)
       .subscribe(

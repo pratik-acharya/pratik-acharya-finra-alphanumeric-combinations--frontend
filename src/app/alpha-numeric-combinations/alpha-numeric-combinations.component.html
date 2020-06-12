@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <small class="d-block text-right mt-3"> 
+    <small class="d-block text-right mt-3 pagination"> 
       <div class="btn-group" role="group" >
         <button type="button" class="btn btn-secondary" *ngFor="let pageItem of createPaginationRange(page.totalPages); let currentPage=index" [ngClass]="[page.currentPage== currentPage? 'btn-dark' : '']"  (click)="setPage(currentPage)" >{{pageItem}}</button>
        
